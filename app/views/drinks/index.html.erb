@@ -7,7 +7,7 @@
       <th>Cost</th>
       <th>Location</th>
       <th>Description</th>
-      <th>References</th>
+      <th>User</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,10 +18,10 @@
     <% @drinks.each do |drink| %>
       <tr>
         <td><%= drink.name %></td>
-        <td><%= drink.cost %></td>
+        <td><%= drink.price %></td>
         <td><%= drink.location %></td>
         <td><%= drink.description %></td>
-        <td><%= drink.references %></td>
+        <td><%= drink.user_id %></td>
         <td><%= link_to 'Show', drink %></td>
         <td><%= link_to 'Edit', edit_drink_path(drink) %></td>
         <td><%= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
