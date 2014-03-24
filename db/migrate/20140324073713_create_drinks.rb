@@ -5,7 +5,7 @@ class CreateDrinks < ActiveRecord::Migration
       t.integer :cost
       t.string :location
       t.text :description
-      t.user :references
+      t.references :user
 
       t.timestamps
     end

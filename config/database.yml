@@ -52,5 +52,3 @@ production:
   encoding: unicode
   database: cheers-mate_production
   pool: 5
-  username: cheers-mate
-  password:
