@@ -34,6 +34,7 @@ end
 
 # Upload files
 gem 'carrierwave'
+gem "mini_magick"
 
 # Bootstrap-sass
 gem 'bootstrap-sass'
