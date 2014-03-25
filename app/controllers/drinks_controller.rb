@@ -4,7 +4,11 @@ class DrinksController < ApplicationController
   # GET /drinks
   # GET /drinks.json
   def index
-    @drinks = Drink.all
+    if params[:user_id]
+      @drinks = current_user.drinks 
+    else
+      @drinks = Drink.all
+    end
   end
 
   # GET /drinks/1
