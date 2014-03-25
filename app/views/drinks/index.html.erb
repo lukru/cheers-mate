@@ -1,33 +1,15 @@
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Cost</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @drinks.each do |drink| %>
-      <tr>
-        <td><%= drink.name %></td>
-        <td><%= drink.price %></td>
-        <td><%= drink.location %></td>
-        <td><%= drink.description %></td>
-        <td><%= drink.user_id %></td>
-        <td><%= link_to 'Show', drink %></td>
-        <td><%= link_to 'Edit', edit_drink_path(drink) %></td>
-        <td><%= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="container-fluid">
+  <div class="row">
+  <% @drinks.each do |drink| %>
+    <div class="col-md-4 col-sm-6 col-sx-12">
+      <%= image_tag drink.image.thumb.url, :width => '100%' %>
+      <%= drink.name %>
+      <%= link_to 'Show', drink %>
+      <%= link_to 'Edit', edit_drink_path(drink) %>
+      <%= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %>
+  </div>
+</div>
 
 <%= link_to 'New Drink', new_drink_path %>
