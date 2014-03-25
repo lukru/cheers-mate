@@ -10,6 +10,8 @@ class DrinksController < ApplicationController
   # GET /drinks/1
   # GET /drinks/1.json
   def show
+    @drink = Drink.find_by_id(params[:id])
+    @user = @drink.user 
   end
 
   # GET /drinks/new
