@@ -31,14 +31,13 @@
 
   <div class="field">
     <%= f.label :location %><br>
-    <%= f.select :location, @venues.collect{|v| "#{v.name} #{v.location.address}" }, :include_blank => true %>
+    <%= f.select :location, [], :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
     <%= f.hidden_field :user_id %>
   </div>
   <div class="field">
@@ -69,6 +68,11 @@
       dataType: 'json'
     }).done(function(data) {
       console.log(data);
+      //<option value=""></option>
+      $.each(data, function(index, venue){
+        $('#drink_location').append('<option>' + venue.name + ', ' + venue.location.address +  '</option>');
+      })
+      // data.each {|v| venue_array.push("#{v["name"]} #{v["location"]["address"]}") }
     });
   }
 
