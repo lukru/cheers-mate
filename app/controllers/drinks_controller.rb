@@ -21,6 +21,11 @@ class DrinksController < ApplicationController
   # GET /drinks/new
   def new
     @drink = Drink.new
+
+    id = "DAX3TYQCBHJCZ4HZI54JLDGHI2OGB1QRCEGI4HZCNJXK2N1L"
+    secret = "AT40IMR1X0OFYEYCGXJNEDSJILMN2MWE4BVOCG011H5QWBKN"
+    client = Foursquare2::Client.new(client_id: id, client_secret: secret)
+    @venues = client.search_venues(ll: "-33.88057774083009, 151.20026152112302")
   end
 
   # GET /drinks/1/edit
@@ -30,6 +35,7 @@ class DrinksController < ApplicationController
   # POST /drinks
   # POST /drinks.json
   def create
+    # raise params.to_json
     @drink = Drink.new(drink_params)
 
     respond_to do |format|

@@ -35,7 +35,34 @@
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
   </div>
+  <div class="field">
+    <%= f.hidden_field :lat %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :long %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<% @venues.each do |venue| %>
+  <%=  venue.to_yaml %>
+<% end %>
+
+<script>
+  x = navigator.geolocation;
+
+  x.getCurrentPosition(success, failure);
+
+  function success(position) {
+    var myLat = position.coords.latitude
+    var myLong = position.coords.longitude
+    $('#drink_lat').val(myLat);
+    $('#drink_long').val(myLong);
+  }
+
+  function failure() {
+    $('#lat').html("<p>It didn't work, coordinates not available.</p>");
+  }
+</script>

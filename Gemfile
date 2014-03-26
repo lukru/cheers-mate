@@ -42,6 +42,12 @@ gem "mini_magick"
 # Bootstrap-sass
 gem 'bootstrap-sass'
 
+# Foursquare
+gem 'foursquare2', :git => 'git://github.com/centrigo/foursquare2.git'
+
+gem 'pry-rails'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
