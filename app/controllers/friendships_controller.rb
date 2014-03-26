@@ -3,10 +3,10 @@ class FriendshipsController < ApplicationController
     # @friendship = Friendship.new(params[:friendship])
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
-      redirect_to root_url, :notice => "Added friend."
+      redirect_to root_url, :notice => "Following. Cheers!"
     else
-      flash[:error] = "Unable to add friend."
-      redirect_to root_url
+      # flash[:error] = "Unable to add friend."
+      redirect_to root_url, :notice => "Unable to follow friend."
     end
   end
 
