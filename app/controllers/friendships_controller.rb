@@ -1,16 +1,19 @@
 class FriendshipsController < ApplicationController
   def create
-    @friendship = Friendship.new(params[:friendship])
+    # @friendship = Friendship.new(params[:friendship])
+    @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
-      redirect_to root_url, :notice => "Successfully created friendship."
+      redirect_to root_url, :notice => "Added friend."
     else
-      render :action => 'new'
+      flash[:error] = "Unable to add friend."
+      redirect_to root_url
     end
   end
 
   def destroy
-    @friendship = Friendship.find(params[:id])
+    @friendship = current_user.friendships.find(params[:id])
     @friendship.destroy
-    redirect_to root_url, :notice => "Successfully destroyed friendship."
+    flash[:notice] = "Removed friend."
+    redirect_to current_user
   end
 end

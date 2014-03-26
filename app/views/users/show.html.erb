@@ -25,5 +25,15 @@
   <%= @user.birthday %>
 </p>
 
+<h2>Friends</h2>
+<ul>
+  <% for friendship in @user.friendships %>
+    <li>
+      <%=h friendship.friend.username %>
+      (<%= link_to 'remove', friendship, :method => :delete %>)
+    </li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
