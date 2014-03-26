@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :drinks
   has_many :likes
+
+  has_many :friendships
+  has_many :friends, :through => :friendships
 end
