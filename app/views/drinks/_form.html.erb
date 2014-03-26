@@ -25,6 +25,11 @@
   </div>
 
   <div class="field">
+  <% f.label :city %>
+  <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
     <%= f.label :location %><br>
     <%= f.select :location, @venues.collect{|v| "#{v.name} #{v.location.address}" }, :include_blank => true %>
   </div>
@@ -46,11 +51,6 @@
     <%= f.submit %>
   </div>
 <% end %>
-
-<!-- <% @venues.each do |venue| %>
-  <p><%=  venue.name %>
-  <%= venue.location["address"] %></p>
-<% end %> -->
 
 <script>
   x = navigator.geolocation;
