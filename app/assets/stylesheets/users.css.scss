@@ -1,3 +1,28 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+    font-family: 'cartonslab';
+    src: url(font-path('carton/carton-slab-webfont.eot'));
+    src: url(font-path('carton/carton-slab-webfont.eot?#iefix')) format('embedded-opentype'),
+         url(font-path('carton/carton-slab-webfont.woff')) format('woff'),
+         url(font-path('carton/carton-slab-webfont.ttf')) format('truetype'),
+         url(font-path('carton/carton-slab-webfont.svg#cartonslab')) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.signin-body {
+  background: image-url("bottles.jpg") no-repeat center center fixed;
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
+}
+
+.signin-body h1 {
+  font-family: 'cartonslab', Helvetica, Arial, sans-serif;
+}
