@@ -70,7 +70,7 @@
       console.log(data);
       //<option value=""></option>
       $.each(data, function(index, venue){
-        $('#drink_location').append('<option>' + venue.name + ', ' + venue.location.address +  '</option>');
+        $('#drink_location').append('<option>' + venue.name + (venue.location.address ? (', ' +venue.location.address) : '')  +  '</option>');
       })
       // data.each {|v| venue_array.push("#{v["name"]} #{v["location"]["address"]}") }
     });
