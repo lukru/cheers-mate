@@ -3,6 +3,8 @@ CheersMate::Application.routes.draw do
 
   resources :drinks
 
+  get '/venues' => 'drinks#get_venues'
+
   resources :users do 
     resources :drinks do 
       resources :likes
@@ -10,6 +12,8 @@ CheersMate::Application.routes.draw do
   end
 
   root :to => "drinks#index"
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

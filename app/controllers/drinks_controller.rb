@@ -38,6 +38,14 @@ class DrinksController < ApplicationController
     @venues = response["venues"]
   end
 
+  def get_venues
+    id = "DAX3TYQCBHJCZ4HZI54JLDGHI2OGB1QRCEGI4HZCNJXK2N1L"
+    secret = "AT40IMR1X0OFYEYCGXJNEDSJILMN2MWE4BVOCG011H5QWBKN"
+    client = Foursquare2::Client.new(client_id: id, client_secret: secret)
+    response = client.search_venues(ll: "-33.88057774083009, 151.20026152112302")
+    @venues = response["venues"]
+  end
+
   # POST /drinks
   # POST /drinks.json
   def create
@@ -87,6 +95,6 @@ class DrinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drink_params
-      params.require(:drink).permit(:name, :price, :location, :description, :references, :image, :user_id, :lat, :long)
+      params.require(:drink).permit(:name, :price, :city, :location, :description, :references, :image, :user_id, :lat, :long)
     end
 end
