@@ -23,9 +23,10 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
+
   <div class="field">
     <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    <%= f.select :location, @venues.collect{|v| "#{v.name} #{v.location.address}" } %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -33,7 +34,7 @@
   </div>
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.hidden_field :user_id %>
   </div>
   <div class="field">
     <%= f.hidden_field :lat %>
@@ -47,7 +48,8 @@
 <% end %>
 
 <% @venues.each do |venue| %>
-  <%=  venue.to_yaml %>
+  <p><%=  venue.name %>
+  <%= venue.location["address"] %></p>
 <% end %>
 
 <script>
