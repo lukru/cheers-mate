@@ -92,6 +92,7 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.9.2)
     multipart-post (1.2.0)
+    nifty-generators (0.4.6)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
@@ -182,6 +183,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   mocha
+  nifty-generators
   pg
   pry-rails
   rails (= 4.0.2)

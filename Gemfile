@@ -47,6 +47,9 @@ gem 'foursquare2', :git => 'git://github.com/centrigo/foursquare2.git'
 
 gem 'pry-rails'
 
+# Nifty generators for scaffolding, layout files, authentication, etc.
+gem "nifty-generators", :group => :development
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
