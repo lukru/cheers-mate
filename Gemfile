@@ -59,3 +59,15 @@ gem 'pry-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :test do 
+  #for better tests
+  gem 'shoulda'
+  # mocking and stubbing
+  gem 'mocha'
+  #for prettier test-output
+  gem 'turn'
+  #simple code-coverage tool
+  # https://github.com/colszowka/simplecov
+  gem 'simplecov', :require => false
+end

@@ -3,6 +3,8 @@ require 'test_helper'
 class DrinksControllerTest < ActionController::TestCase
   setup do
     @drink = drinks(:one)
+    @user = @drink.user
+    sign_in @user
   end
 
   test "should get index" do
@@ -11,6 +13,17 @@ class DrinksControllerTest < ActionController::TestCase
     assert_not_nil assigns(:drinks)
   end
 
+  test "should get just the drinks for the current user" do
+    get :index, :user_id => true
+    assert_response :success
+    drinks = assigns(:drinks)
+    assert_not_nil drinks
+    drinks.each do |drink|
+      assert_equal(@user.id, drink.user_id)
+    end
+  end
+
+
   test "should get new" do
     get :new
     assert_response :success
@@ -18,7 +31,7 @@ class DrinksControllerTest < ActionController::TestCase
 
   test "should create drink" do
     assert_difference('Drink.count') do
-      post :create, drink: { cost: @drink.cost, description: @drink.description, location: @drink.location, name: @drink.name, references: @drink.references }
+      post :create, drink: { price: @drink.price, description: @drink.description, location: @drink.location, name: @drink.name }
     end
 
     assert_redirected_to drink_path(assigns(:drink))
@@ -35,7 +48,7 @@ class DrinksControllerTest < ActionController::TestCase
   end
 
   test "should update drink" do
-    patch :update, id: @drink, drink: { cost: @drink.cost, description: @drink.description, location: @drink.location, name: @drink.name, references: @drink.references }
+    patch :update, id: @drink, drink: { price: @drink.price, description: @drink.description, location: @drink.location, name: @drink.name }
     assert_redirected_to drink_path(assigns(:drink))
   end
 
