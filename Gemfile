@@ -52,12 +52,6 @@ gem "nifty-generators", :group => :development
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
-group :production do
-  # for heroku
-  gem 'rails_12factor'
-end
-
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -81,3 +75,11 @@ group :test do
   # https://github.com/colszowka/simplecov
   gem 'simplecov', :require => false
 end
+
+group :production do
+  # for heroku
+  gem 'rails_12factor'
+end
+
+# Using Amazon S3 for file uploads
+gem "fog", "~> 1.3.1"
