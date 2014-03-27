@@ -1,8 +1,8 @@
 CheersMate::Application.routes.draw do
-  resources :friendships
   devise_for :users
 
   resources :drinks
+  resources :friendships
 
   get '/venues' => 'drinks#get_venues'
 
@@ -13,7 +13,6 @@ CheersMate::Application.routes.draw do
   end
 
   root :to => "drinks#index"
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

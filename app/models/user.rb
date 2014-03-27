@@ -12,4 +12,17 @@ class User < ActiveRecord::Base
 
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+
+  def friends_drinks
+    Drink.where(user_id: friends)
+  end
+      
+  def friend_of?(user)
+    # Return false if you're me
+    return false if user.id == self.id
+    # Return true if you're one of my friends
+    return true if friends.include?(user)
+
+    return false 
+  end
 end

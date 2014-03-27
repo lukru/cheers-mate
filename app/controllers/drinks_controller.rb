@@ -5,10 +5,13 @@ class DrinksController < ApplicationController
   # GET /drinks.json
   def index
     if params[:user_id]
-      @drinks = current_user.drinks 
+      @drinks = current_user.drinks
+    elsif params[:friends]
+      @drinks = current_user.friends_drinks
     else
       @drinks = Drink.all
     end
+    
     if @user.present? && params[:all].blank?
       @drinks = @drinks.where(:user_id => @user.id)
     end

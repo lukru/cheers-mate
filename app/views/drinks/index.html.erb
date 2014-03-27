@@ -1,12 +1,16 @@
 <div class="container-fluid">
   <div class="row">
   <% @drinks.each do |drink| %>
-    <div class="col-md-4 col-sm-6 col-sx-12">
+    <div class="col-md-4 col-sm-6 col-sx-12 image-box">
       <%= image_tag drink.image.thumb.url, :width => '100%' %>
-      <%= drink.name %>
+
+      <div class="image-info">
+      <h4><strong><%= drink.name %></strong></h4>
+      <%= drink.location %>
       <%= link_to 'Show', drink %>
       <%= link_to 'Edit', edit_drink_path(drink) %>
       <%= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     </div>
   <% end %>
   </div>
