@@ -2,18 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.image-box {
-  border: 1px solid #CCC;
-  padding: 10px;
-}
-
-.image-info {
-  background: #FFF;
-  display: block;
-  position: relative;
-  z-index: 10;
-  margin-top: -55px;
-  height: 60px;
-  opacity: .5;
-  border: 1px solid red;
+.image-info{
+  margin-top:-65px;
+  padding-bottom:40px;
+  background-color: rbga(255,255,255,0.9);
 }
