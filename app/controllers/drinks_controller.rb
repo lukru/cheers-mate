@@ -33,26 +33,16 @@ class DrinksController < ApplicationController
   # GET /drinks/new
   def new
     @drink = current_user.drinks.new
-
-    # id = "DAX3TYQCBHJCZ4HZI54JLDGHI2OGB1QRCEGI4HZCNJXK2N1L"
-    # secret = "AT40IMR1X0OFYEYCGXJNEDSJILMN2MWE4BVOCG011H5QWBKN"
-    # client = Foursquare2::Client.new(client_id: id, client_secret: secret)
-    # response = client.search_venues(ll: "-33.88057774083009, 151.20026152112302")
-    # @venues = response["venues"]
   end
 
   # GET /drinks/1/edit
   def edit
-    # id = "DAX3TYQCBHJCZ4HZI54JLDGHI2OGB1QRCEGI4HZCNJXK2N1L"
-    # secret = "AT40IMR1X0OFYEYCGXJNEDSJILMN2MWE4BVOCG011H5QWBKN"
-    # client = Foursquare2::Client.new(client_id: id, client_secret: secret)
-    # response = client.search_venues(ll: "-33.88057774083009, 151.20026152112302")
-    # @venues = response["venues"]
+
   end
 
   def get_venues
-    id = "DAX3TYQCBHJCZ4HZI54JLDGHI2OGB1QRCEGI4HZCNJXK2N1L"
-    secret = "AT40IMR1X0OFYEYCGXJNEDSJILMN2MWE4BVOCG011H5QWBKN"
+    id = ENV['FOURSQUARE_CLIENT_ID']
+    secret = ENV['FOURSQUARE_CLIENT_SECRET']
     client = Foursquare2::Client.new(client_id: id, client_secret: secret)
     response = client.search_venues(ll: "#{params[:lat]}, #{params[:long]}")
     @venues = response["venues"]

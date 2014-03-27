@@ -50,6 +50,8 @@ gem 'pry-rails'
 # Nifty generators for scaffolding, layout files, authentication, etc.
 gem "nifty-generators", :group => :development
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
