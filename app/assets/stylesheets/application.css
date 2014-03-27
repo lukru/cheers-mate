@@ -15,12 +15,12 @@
 @import "bootstrap";
 
 body {
-  background-image: url("furley_bg.png");
+  background-image: image-url("furley_bg.png");
   background-repeat: repeat;
 }
 
 .signin-body {
-  background-image: url("bottles.jpg");
+  background-image: image-url("bottles.jpg");
   background-repeat: repeat;
 }
 
