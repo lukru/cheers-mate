@@ -1,82 +1,84 @@
-<%= form_for(@drink) do |f| %>
-  <% if @drink.errors.any? %>
+  <div class="formwrapper">
+
+    <%= form_for(@drink) do |f| %>
+    <% if @drink.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@drink.errors.count, "error") %> prohibited this drink from being saved:</h2>
 
       <ul>
-      <% @drink.errors.full_messages.each do |msg| %>
+        <% @drink.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
+    <div class="form-group">
+      <%= f.label :image %><br>
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :price %><br>
+      <%= f.text_field :price, class: "form-control" %>
+    </div>
 
-  <div class="field">
-  <%= f.label 'City, State', :class => 'capital' %><br>
-    <%= f.text_field :city %>
-  </div>
+    <div class="form-group">
+      <%= f.label 'City, State', :class => 'capital' %><br>
+      <%= f.text_field :city, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.select :location, [], :include_blank => true %>
+    <div class="form-group">
+      <%= f.label :location %><br>
+      <%= f.select :location, [], :include_blank => true, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :user_id, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :lat, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :long, class: "form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit :class => "btn btn-default"%>
+    </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :lat %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :long %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <script>
+    x = navigator.geolocation;
 
-<script>
-  x = navigator.geolocation;
+    x.getCurrentPosition(success, failure);
 
-  x.getCurrentPosition(success, failure);
+    function success(position) {
+      var myLat = position.coords.latitude
+      var myLong = position.coords.longitude
+      $('#drink_lat').val(myLat);
+      $('#drink_long').val(myLong);
 
-  function success(position) {
-    var myLat = position.coords.latitude
-    var myLong = position.coords.longitude
-    $('#drink_lat').val(myLat);
-    $('#drink_long').val(myLong);
-
-    $.ajax({
-      url: '/venues',
-      data: { lat: myLat, long: myLong  },
-      dataType: 'json'
-    }).done(function(data) {
-      console.log(data);
+      $.ajax({
+        url: '/venues',
+        data: { lat: myLat, long: myLong  },
+        dataType: 'json'
+      }).done(function(data) {
+        console.log(data);
       //<option value=""></option>
       $.each(data, function(index, venue){
         $('#drink_location').append('<option>' + venue.name + (venue.location.address ? (', ' +venue.location.address) : '')  +  '</option>');
       })
       // data.each {|v| venue_array.push("#{v["name"]} #{v["location"]["address"]}") }
     });
-  }
+    }
 
-  function failure() {
-    $('#lat').html("<p>It didn't work, coordinates not available.</p>");
-  }
-</script>
+    function failure() {
+      $('#lat').html("<p>It didn't work, coordinates not available.</p>");
+    }
+  </script>

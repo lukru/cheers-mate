@@ -1,0 +1,157 @@
+// Hover effects with CSS3 transitions
+// Container has image and all other information in it (in the html)
+// Inside the view, inserting element with class mask to put the info in it
+
+.view {
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    float: left;
+    border: 10px solid #fff;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    box-shadow: 1px 1px 2px #e6e6e6;
+    -moz-box-shadow: 1px 1px 2px #e6e6e6;
+    -webkit-box-shadow: 1px 1px 2px #e6e6e6;
+    cursor: default;
+    background: #fff;
+}
+.view .mask, .view .content {
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+.view img {
+    display: block;
+    position: relative;
+}
+.view h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 20px 0 0 0
+}
+.view p {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 20px;
+    text-align: center
+}
+.view a.info {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    box-shadow: 0 0 1px #000;
+    -moz-box-shadow: 0 0 1px #000;
+    -webkit-box-shadow: 0 0 1px #000;
+}
+.view a.info:hover {
+    box-shadow: 0 0 5px #000;
+    -moz-box-shadow: 0 0 5px #000;
+    -webkit-box-shadow: 0 0 5px #000;
+}
+
+
+// Using two mask elements to slide them in from the bottom right and top left
+// The two masks will have different translation and a transform origin 
+// Set one to be aligned to the top
+// Set other aligned to the bottom 
+.view-two .mask-1,
+.view-two .mask-2 {
+  background-color: rgba(0,0,0,0.5);
+  height: 361px;
+  width: 361px;
+  background: rgba(119,0,36,0.5);
+  opacity: 1;
+  transition: all 0.3s ease-in-out 0.6s;
+  -moz-transition: all 0.3s ease-in-out 0.6s;
+  -webkit-transition: all 0.3s ease-in-out 0.6s;
+}
+.view-two .mask-1 {
+  left: auto;
+  right: 0px;
+  transform: rotate(56.5deg) translateX(-180px);
+  -moz-transform: rotate(56.5deg) translateX(-180px);
+  -webkit-transform: rotate(56.5deg) translateX(-180px);
+  transform-origin: 100% 0%;
+  -moz-transform-origin: 100% 0%;
+  -webkit-transform-origin: 100% 0%;
+}
+.view-two .mask-2 {
+  top: auto;
+  bottom: 0px;
+  transform: rotate(56.5deg) translateX(180px);
+  -moz-transform: rotate(56.5deg) translateX(180px);
+  -webkit-transform: rotate(56.5deg) translateX(180px);
+  transform-origin: 0% 100%;
+  -moz-transform-origin: 0% 100%;
+  -webkit-transform-origin: 0% 100%;
+}
+
+// Content styled like it's coming out as a tiny slice through the touching edges of the two masks
+.view-two .content {
+  background: rgba(0,0,0,0.9);
+  height: 0px;
+  opacity: 0.5;
+  width: 361px;
+  overflow: hidden;
+  transform: rotate(-33.5deg) translate(-112px, 166px);
+  -moz-transform: rotate(-33.5deg) translate(-112px, 166px);
+  -webkit-transform: rotate(-33.5deg) translate(-112px, 166px);
+  transform-origin: 0% 100%;
+  -moz-transform-origin: 0% 100%;
+  -webkit-transform-origin: 0% 100%;
+  transition: all 0.4s ease-in-out 0.3s;
+  -moz-transition: all 0.4s ease-in-out 0.3s;
+  -webkit-transition: all 0.4s ease-in-out 0.3s;
+}
+.view-two h2 {
+  background: transparent;
+  margin-top: 5px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.view-two a.info {
+  display: none;
+}
+
+// on hover, make the content come out from the slot
+// make the masks touch at their edges
+.view-two:hover .content {
+  height: 120px;
+  width: 300px;
+  opacity: 0.9;
+  top: 40px;
+  transform: rotate(0deg) translate(0px,0px);
+  -moz-transform: rotate(0deg) translate(0px,0px);
+  -webkit-transform: rotate(0deg) translate(0px,0px);
+}
+.view-two:hover .mask-1,
+.view-two:hover .mask-2 {
+  transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+}
+.view-two:hover .mask-1 {
+  transform: rotate(56.5deg) translateX(1px);
+  -moz-transform: rotate(56.5deg) translateX(1px);
+  -webkit-transform: rotate(56.5deg) translate(1px);
+}
+.view-two:hover .mask-2 {
+  transform: rotate(56.5deg) translateX(-1px);
+  -moz-transform: rotate(56.5deg) translateX(-1px);
+  -webkit-transform: rotate(56.5deg) translateX(-1px);
+}
