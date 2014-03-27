@@ -37,7 +37,8 @@ end
 
 # Upload files
 gem 'carrierwave'
-gem "mini_magick"
+gem 'cloudinary'
+#gem "mini_magick"
 
 # Bootstrap-sass
 gem 'bootstrap-sass'
@@ -82,4 +83,4 @@ group :production do
 end
 
 # Using Amazon S3 for file uploads
-gem "fog", "~> 1.3.1"
+#gem "fog", "~> 1.3.1"
