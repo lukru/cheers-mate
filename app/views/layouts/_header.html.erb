@@ -15,14 +15,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
+
+
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <form class="navbar-form search-wrapper cf" role="search">
-            <div class="form-group">
-              <input type="text" class="search" placeholder="Thirsty?" required="">
-            </div>
-            <button type="submit"class="my-button">Search</button>
-          </form>
+          <%= form_tag(drinks_path, :method => "get", id: "search-form", class: "navbar-form search-wrapper cf", role: "search") do %>
+          <div class="form-group">
+            <%= text_field_tag :search, params[:search], placeholder: "Thirsty? Search drinks.", class: "search", required: "" %>
+          </div>
+          <button type="submit"class="my-button">Search</button>
+          <% end %>
         </li>
         <li><%= link_to 'Drinks', drinks_path %></li>
         <li><%= link_to 'Friends', drinks_path(friends: true) %></li>

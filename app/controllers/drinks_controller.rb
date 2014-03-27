@@ -11,9 +11,15 @@ class DrinksController < ApplicationController
     else
       @drinks = Drink.all
     end
-    
+
     if @user.present? && params[:all].blank?
       @drinks = @drinks.where(:user_id => @user.id)
+    end
+
+    if params[:search]
+      @drinks = @drinks.search(params[:search]).order("name")
+    else
+      @drinks = @drinks.order(created_at: :desc)
     end
   end
 

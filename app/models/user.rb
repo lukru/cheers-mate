@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
+  scope :search, ->(query){ where("username ilike ?", "%#{query}%") }
+
   def friends_drinks
     Drink.where(user_id: friends)
   end
@@ -25,4 +27,5 @@ class User < ActiveRecord::Base
 
     return false 
   end
+
 end

@@ -76,6 +76,7 @@
 .search {
   display: block;
   height: 32px;
+  width: 180px;
   margin-right: -5px;
   padding: 5px 10px;
   font-size: 15px;
