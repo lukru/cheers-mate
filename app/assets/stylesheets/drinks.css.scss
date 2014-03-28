@@ -5,9 +5,10 @@
 .drinkspage {
   background-image: image-url("cork_1.png");
   background-repeat: repeat;
+  margin-bottom: 90px;
 }
 .drinkspage .row {
-  padding-bottom: 100px;
+  padding-bottom: 150px;
   margin-top: 25px;
 }
 .showpage {
@@ -54,6 +55,19 @@
   display: block;
   text-align: right;
   margin-top: -40px;
+}
+
+#drink_location {
+  background-color: #FFF;
+  width: 100%;
+}
+
+
+
+.foursquare {
+  display: block;
+  position: relative;
+  margin: 0px auto;
 }
 .view {
   width: 100%;

@@ -1,4 +1,5 @@
-  <div class="formwrapper">
+<div class="formwrapper">
+<h1>Bottoms Up</h1>  
 
     <%= form_for(@drink) do |f| %>
     <% if @drink.errors.any? %>
@@ -15,7 +16,7 @@
 
     <div class="form-group">
       <%= f.label :image %><br>
-      <%= f.file_field :image, class: "form-control" %>
+      <%= f.file_field :image %>
     </div>
     <div class="form-group">
       <%= f.label :name %><br>
@@ -52,7 +53,12 @@
       <%= f.submit :class => "btn btn-default"%>
     </div>
     <% end %>
+
+    <%= image_tag 'foursquare.png', class: 'foursquare', :width => '50%' %>
   </div>
+
+  
+
   <script>
     x = navigator.geolocation;
 
