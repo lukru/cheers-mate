@@ -2,58 +2,112 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-    .view {
-      width: 100%;
-      float: left;
-      border: 10px solid #000;
-      overflow: hidden;
-      position: relative; 
-      text-align: center;
-      box-shadow: 1px 1px 2px #e6e6e6;
-      -moz-box-shadow: 1px 1px 2px #e6e6e6;
-      -webkit-box-shadow: 1px 1px 2px #e6e6e6;
-      cursor: default;
-      background: #fff;
-    }
-    .view .mask,
-    .view .content {
-      width: 100%;
-      position: absolute;
-      overflow: hidden;
-      top: 0;
-      left: 0;
-    }
-    .view img {
-      display: block;
-      position: relative;
-    }
-    .view h2 {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 28px;
-      font-weight: bolder;
-      text-transform: capitalize;
-      color: #fff;
-      text-align: center;
-      position: relative;
-      padding: 10px;
-      background: rgba(0,0,0,0.8);
-      margin: 20px 0 0 0;
-    }
-    .view p {
-      font-family: Georgia,serif;
-      font-size: 16px;
-      position: relative;
-      color: #fff;
-      padding: 20px 20px 20px;
-      text-align: center;
-      // background: rgba(0,0,0,0.8);
-    }
-    .view a.info {
-      display: inline-block;
-      text-decoration: none;
-      padding: 7px 14px;
-      background: #000;
-      color: #fff;
+.drinkspage {
+  background-image: image-url("cork_1.png");
+  background-repeat: repeat;
+}
+.drinkspage .row {
+  padding-bottom: 100px;
+  margin-top: 25px;
+}
+.showpage {
+  margin-bottom: 150px;
+}
+.drinks-wrapper {
+  width: 75%;
+  margin-top: 50px;
+}
+
+.img-border {
+  border: 20px solid #000;
+}
+.img-info h2 {
+  font-weight: bolder;
+  text-transform: capitalize;
+  padding: 0;
+  margin: 0;
+}
+.img-info {
+  background: rgba(255,255,255,0.75);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.more-info {
+  margin-top: 15px;
+}
+
+.drink-title {
+  color: #ec008c;
+}
+
+.moneys {
+  display: block;
+  float: right;
+  margin-top: -25px;
+}
+.hide-price {
+  display: none;
+}
+
+.drink-description {
+  float: right;
+  display: block;
+  text-align: right;
+  margin-top: -40px;
+}
+.view {
+  width: 100%;
+  float: left;
+  border: 10px solid #000;
+  overflow: hidden;
+  position: relative; 
+  text-align: center;
+  box-shadow: 1px 1px 2px #e6e6e6;
+  -moz-box-shadow: 1px 1px 2px #e6e6e6;
+  -webkit-box-shadow: 1px 1px 2px #e6e6e6;
+  cursor: default;
+  background: #fff;
+  margin-top: 25px;
+}
+.view .mask,
+.view .content {
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+.view img {
+  display: block;
+  position: relative;
+}
+.view h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: bolder;
+  text-transform: capitalize;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  padding: 10px;
+  background: rgba(0,0,0,0.8);
+  margin: 20px 0 0 0;
+}
+.view p {
+  font-family: Georgia,serif;
+  font-size: 16px;
+  position: relative;
+  color: #fff;
+  padding: 20px 20px 20px;
+  text-align: center;
+  // background: rgba(0,0,0,0.8);
+}
+.view a.info {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  background: #000;
+  color: #fff;
       // text-transform: uppercase;
       box-shadow: 0 0 1px #000;
       -moz-box-shadow: 0 0 1px #000;
@@ -85,9 +139,9 @@
       -webkit-transition: all 0.2s ease-in-out;
     }
     .view-first p {
-      transform: translateY(300px);
-      -moz-transform: translateY(300px);
-      -webkit-transform: translateY(300px);
+      transform: translateY(400px);
+      -moz-transform: translateY(400px);
+      -webkit-transform: translateY(400px);
     }
     .view-first a.info {
       opacity: 0;

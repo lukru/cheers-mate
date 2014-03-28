@@ -26,9 +26,9 @@
           <button type="submit"class="my-button">Search</button>
           <% end %>
         </li>
-        <li><%= link_to 'Drinks', drinks_path %></li>
-        <li><%= link_to 'Friends', drinks_path(friends: true) %></li>
-        <li><%= link_to 'Share', new_drink_path %></li>
+        <li><%= link_to 'All Drinks', drinks_path %></li>
+        <li><%= link_to 'Friends Feed', drinks_path(friends: true) %></li>
+        <li><%= link_to 'Share Drink', new_drink_path %></li>
 
         <% if user_signed_in? %>
         <li>
