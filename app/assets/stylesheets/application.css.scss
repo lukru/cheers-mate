@@ -24,7 +24,53 @@ html, body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding-bottom: 100px;
 }
+.unique2 {
+  background-image: image-url("up-cheers.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 
+.aboutpage {
+  background-image: image-url("cork_1.png");
+  background-repeat: repeat;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-bottom: 100px;
+}
+
+.aboutwrapper {
+  width: 75%;
+  margin: 0px auto;
+  text-align: justify;
+  font-size: 16px;
+  margin-top: 25px;
+}
+#bartender {
+  position: relative;
+  display: block;
+  background-image: image-url("bartender.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 200;
+  height: 400px;
+  padding: 0;
+  margin-top: -20px;
+}
+.about {
+  color: #FFF;
+  position: relative;
+  display: block;
+  float: right;
+  padding-right: 20px;
+  margin-top: -120px;
+  z-index: 300;
+}
+.about h1 {
+  font-weight: bolder;
+  font-size: 72px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 5px;
+}
 .formwrapper{
   margin:0 auto;
   margin-top: 75px;
@@ -122,7 +168,22 @@ html, body {
 }
 
 .navbar-fixed-bottom {
-  height: 75px;
+  height: 85px;
+}
+.navbar-fixed-bottom p {
+  padding: 0;
+  margin: 0;
+}
+.navbar-fixed-bottom a {
+  color: #000;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.navbar-fixed-bottom a:visited {
+  color: #000;
+}
+.navbar-fixed-bottom a:hover {
+  color: #ec008c;
 }
 
 .navbar-fixed-bottom p {
@@ -130,5 +191,9 @@ html, body {
 }
 .navbar-fixed-bottom .container {
   padding: 10px;
+}
+
+.terms {
+  font-size: 11px;
 }
 
