@@ -2,6 +2,8 @@
  -->
  <body class="drinkspage"></body>
  <div class="formwrapper">
+
+ <h1 class="profile"> <%= @user.username %>'s profile </h1>
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -27,7 +29,7 @@
   <%= @user.birthday %>
 </p>
 
-<h2>Following</h2>
+<h2 class="follow">Following</h2>
 <ul>
   <% for friendship in @user.friendships %>
     <li>
@@ -37,16 +39,16 @@
   <% end %>
 </ul>
 
-<h2>Followers</h2>
+<h2 class="follow">Followers</h2>
 <ul>
   <% for user in @user.inverse_friends %>
     <li>
-      <%=h user.username %>
+      <%=h link_to user.username, user_path(friendship.user_id) %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %><br><br>
+<%= link_to 'Edit', edit_user_path(@user), :class => 'btn btn-default' %>
+<%= link_to 'Back', users_path, :class => 'btn btn-default' %><br><br>
 
 </div>
