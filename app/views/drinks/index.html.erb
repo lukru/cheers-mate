@@ -38,7 +38,6 @@ hide_price = ""
   end
 %>
 
-
 <div class="container-fluid <%= wrapper_class %>">
   <div class="row">
     <% @drinks.each do |drink| %>
@@ -46,10 +45,10 @@ hide_price = ""
       <div class="<%= css_class2 %>">
         <%= image_tag drink.image_url(:thumb), :width => '100%', class: border_class %>
         <div class="<%= css_class3 %> <%= info_class %>">
-          <h2 class="<%= drink_title %>"><%= drink.name %></h2><h3 class="<%= moneys_class %> <%= hide_price %>">$<%= drink.price %></h3>
+          <h2 class="<%= drink_title %>"><%= drink.name %></h2><h3 class="<%= moneys_class %> <%= hide_price %>"><%= number_to_currency(drink.price, :unit => "$") %></h3>
           <p class="<%= more_info %>">
             <span class="<%= italic_class %>"><%= drink.location %></span><br>
-            <span class="<%= italic_class %>"><%= drink.city %></span><br><br>
+            <span class="<%= italic_class %>"><%= drink.city %></span><br>
             <span class="<%= drink_description %>"><%= drink.description %></span><br>
             <span class="<%= css_class_hide %>">
               <%= link_to 'More please', drink, :class => 'info' %>

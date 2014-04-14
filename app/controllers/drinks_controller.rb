@@ -12,8 +12,6 @@ class DrinksController < ApplicationController
       @drinks = Drink.all
     end
 
-    
-
 
     if @user.present? && params[:all].blank?
       @drinks = @drinks.where(:user_id => @user.id)
