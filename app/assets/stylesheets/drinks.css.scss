@@ -18,7 +18,6 @@
   width: 75%;
   margin-top: 50px;
 }
-
 .img-border {
   border: 20px solid #000;
 }
@@ -37,7 +36,28 @@
   margin-top: 15px;
 }
 
+.add-drink .upload-photo {
+  padding-top: 30px;
+  text-align: center !important;
+}
+#drink_image {
+  max-width: 170px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  margin: 0px auto;
+}
+
+.fa-camera {
+  font-size: 88px;
+  color: #ec008c;
+}
+
 .drink-title {
+  color: #ec008c;
+  text-align: center;
+}
+
+.photo-upload {
   color: #ec008c;
 }
 
@@ -60,6 +80,9 @@
 #drink_location {
   background-color: #FFF;
   width: 100%;
+}
+.add-drink .actions {
+  text-align: center;
 }
 
 
