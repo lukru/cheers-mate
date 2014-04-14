@@ -1,10 +1,13 @@
 <body class="drinkspage"></body>
-<div class="formwrapper">
+<div class="formwrapper drinksshow">
+
+<h1 class="drinknamee"> <%= @drink.name %> </h1>
 
 <p>
   <%= image_tag @drink.image_url(:thumb) %>
 </p>
 
+<div class="drink-deets">
 <p>
   <strong>Name:</strong>
   <%= @drink.name %>
@@ -12,7 +15,7 @@
 
 <p>
   <strong>Cost:</strong>
-  <%= @drink.price %>
+  <%= number_to_currency(@drink.price, :unit => "$") %>
 </p>
 
 <p>
@@ -26,11 +29,6 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @drink.user_id %>
-</p>
-
-<p>
   <strong>Latitude:</strong>
   <%= @drink.lat %>
 </p>
@@ -39,8 +37,9 @@
   <strong>Latitude:</strong>
   <%= @drink.long %>
 </p>
+</div>
 
-<%= link_to 'Edit', edit_drink_path(@drink) %> |
-<%= link_to 'Back', drinks_path %>
+<%= link_to 'Edit', edit_drink_path(@drink), :class => 'btn btn-default' %> &nbsp;
+<%= link_to 'Back', drinks_path, :class => 'btn btn-default' %>
 
 </body>
